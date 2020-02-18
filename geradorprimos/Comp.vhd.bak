@@ -1,0 +1,15 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+
+entity Comp is
+	port(operand1 : in std_logic_vector(9 downto 0);
+		  NotEqual : out std_logic);
+end Comp;
+
+
+architecture Behavioral of Comp is
+begin
+	NotEqual <= '1' when (unsigned(operand1) /= to_unsigned(0,10)) else
+					'0';
+end Behavioral;

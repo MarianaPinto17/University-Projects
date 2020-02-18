@@ -1,0 +1,55 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+
+entity Counter_1 is
+	port(DataIn_1 	 : in std_logic_vector(9 downto 0);
+		  DataIn_2	 : in std_logic_vector(9 downto 0);
+		  reset  	 : in std_logic;
+		  clk	   	 : in std_logic;
+		  enable 	 : in std_logic;
+		  load 		 : in std_logic;
+		  counterValue : out std_logic_vector(9 downto 0));
+end Counter_1;
+
+
+architecture Behavioral of Counter_1 is
+	
+	signal s_counterValue,s_DataIn_1,s_DataIn_2,s_start,s_finish : unsigned(9 downto 0);
+
+begin
+	
+	process(DataIn_1,DataIn_2)
+	
+	begin
+	
+		if(DataIn_1 <= DataIn_2) then
+			s_start <= s_DataIn_1;
+			s_finish <= s_DataIn_2;
+		else
+			s_start <= s_DataIn_2;
+			s_finish <= s_DataIn_1;
+		end if;
+	
+	end process;
+	
+	process(clk,DataIn_1,DataIn_2)
+	
+	begin
+	
+		if (rising_edge(clk)) then
+			if (reset = '1') then
+				s_counterValue <= (others => '0');
+			elsif (enable = '1') then
+				if(load = '1') then
+					s_counterValue <= s_start;
+				elsif(s_counterValue<s_finish) then
+					s_counterValue <= s_counterValue + 1;
+				end if;
+			end if;
+		end if;
+	
+	end process;
+	
+	counterValue <= std_logic_vector(s_counterValue);
+end Behavioral;

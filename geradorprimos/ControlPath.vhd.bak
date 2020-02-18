@@ -1,0 +1,151 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+entity ControlPath is
+	port(clk : in std_logic;
+		  KEY : in std_logic_vector(1 downto 0); 
+		  s_valid : in std_logic; --sinal da validaçao do numero inserido
+		  cont1_done : in std_logic; --sinal da finalizaçao do contador 1
+		  numberGo1 : in std_logic; --sinal para mandar o numero para o contador 2
+		  cont2_done : in std_logic; --sinal da finalizaçao do contador 2
+		  numberGo2 : in std_logic; --sinal para mandar o numero para o resto
+		  ram_done : in std_logic; --sinal se a ram acabou de escrever
+		  resto_done : in std_logic; --sinal se o resto ta feito
+		  equals_zero : in std_logic; --sinal se e igual a zero ou nao
+		  visor_done : in std_logic; --sinal para mostrar que mostrou os numeros todos
+		  En_intro : out std_logic;
+		  En_valid : out std_logic;
+		  En_cont1 : out std_logic;
+		  En_cont2 : out std_logic;
+		  En_res : out std_logic;
+		  En_comp : out std_logic;
+		  En_ram : out std_logic;
+		  En_visor : out std_logic);
+end ControlPath;
+
+architecture Behavioral of ControlPath is
+
+	type State is (Ins_Val1, Valid, Ins_Val2, Cont1, Cont2, Calc_Res, Comp, Ram, Visor);
+	signal pState, nState : State;
+	
+	signal s_ins2 : std_logic := '0';
+
+begin
+
+	process(clk)
+	begin
+		if(rising_edge(clk)) then
+			if(KEY(0)) then
+				s_ins2 <= '0';
+				pState <= Ins_Val1;
+			else
+				pState <= nState;
+		end if;
+	end process;
+	
+	process()
+	begin
+		En_intro <= '0';
+		En_valid <= '0';
+		En_cont1 <= '0';
+		En_cont2 <= '0';
+		En_res <= '0';
+		En_comp <= '0';
+		En_ram <= '0';
+		En_visor <= '0';
+		
+		case pState is
+			when Ins_Val1 =>
+				En_intro <= '1';
+				if(KEY(1) = '1') then
+					nState <= Valid;
+				else
+					nState <= Ins_Val1;
+				end if;
+				
+			when Valid =>
+				s_signal <= '1';
+				if(s_valid = '1') then
+					if(s_ins2 = '0') then
+						s_ins2 <= '1';
+						nState <= Ins_Val2;
+					elsif(s_ins2 = '1') then
+						nState <= Cont1;
+					else
+						nState <= Valid;
+					end if;
+				elsif(s_valid = '0') then
+					if(s_ins2 = '0') then
+						nState <= Ins_Val1;
+					elsif(s_ins2 = '1') then
+						nState <= Ins_Val2;
+					else
+						nState <= Valid;
+				else
+					nState <= Valid;
+				end if;
+			
+			when Ins_Val2 =>
+				En_intro <= '1';
+				if(KEY(1) = '1') then
+					nState <= Valid;
+				else
+					nState <= Ins_Val2;
+				end if;
+			
+			when Cont1 =>
+				En_cont1 <= '1';
+				if(numberGo1 = '1') then
+					nState <= Cont2;
+				elsif(cont1_done = '1') then
+					nState <= Visor;
+				else
+					nState <= Cont1;
+				end if;
+			
+			when Cont2 =>
+				En_cont2 <= '1';
+				if(numberGo2 = '1') then
+					nState <= Calc_Res;
+				elsif(cont2_done = '1') then 
+					nState <= Ram;
+				else
+					nState <= Cont2;
+				end if;
+				
+			when Calc_Res =>
+				En_res <= '1';
+				if(resto_done = '1') then
+					nState <= Comp;
+				else
+					nState <= Calc_Res;
+				end if;
+			
+			when Comp =>
+				En_comp <= '1';
+				if(equals_zero = '1') then
+					nState <= Cont1;
+				elsif(equals_zero = '0') then
+					nState <= Cont2;
+				else
+					nState <= Comp;
+				end if;
+			
+			when Ram =>
+				En_ram <= '1';
+				if(ram_done = '1') then
+					nState <= Cont1;
+				else
+					nState <= Ram;
+				end if;
+			
+			when Visor =>
+				En_visor <= '1';
+				if(visor_done = '1') then
+					nState <= Visor;
+				else
+					nState <= Visor;
+				end if;
+	end process;
+
+end Behavioral;
