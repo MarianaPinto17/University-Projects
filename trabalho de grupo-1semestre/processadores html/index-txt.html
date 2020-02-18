@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt"> 
+<head>
+	<meta charset="UTF-8"/>
+	<title> Processadores</title>
+	<link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
+</head>
+<script language = "javascript" src="_javascript/funcoes.js"></script>
+<body>
+	<div id="interface"> <!-- para limitar a interface , logo o menu é a única coisa que está em posição absoluta -->
+		<header id="cabecalho"> <!-- inicio cabeçalho -->
+			<hgroup>
+				<h1>Processadores</h1>
+				<h2>Tudo sobre processadores</h2>
+			</hgroup>
+			<img id="icone" src="_imagens/processador.png"> <!-- colar a source da imagem-->
+			<nav id = "menu">
+				<h1>Menu Principal</h1>
+				<ul type="disc">
+					<li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/processador.png')"><a href="index-txt.html">Home</a></li>
+					<li onmouseover="mudaFoto('_imagens/areas.png')" onmouseout="mudaFoto('_imagens/processador.png')"><a href="areas.html"> Àreas</a></li>
+					<li onmouseover="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/processador.png')"> <a href="excpu.html">Exemplos de Processadores</a></li>
+					<li onmouseover="mudaFoto('_imagens/multimedia.png')" onmouseout="mudaFoto('_imagens/processador.png')"><a href="multimedia.html">Vídeos</a></li>
+				</ul>
+			</nav>
+		</header> <!-- fim do cabeçalho -->
+		<section id="corpo"> 
+			<article id="noticia-principal">
+				<header id="cabecalho-artigo">
+					<hgroup>
+						<h3>Tecnologia > &nbsp; Inovações</h3> <!-- por cada br há uma quebra de linha e por cada &nbsp; um espaçamento-->
+						<h1>Saiba tudo sobre o processador</h1>
+						<h2>por Mariana Pinto e Rafael Maio</h2>
+						<h3 class="direita">Atualizado em 20/01/2017</h3>
+					</hgroup>
+				</header>
+				<h2>O que é?</h2>
+				<p style = "text-indent: 50px"> Um processador, também chamado de <a href="https://pt.wikipedia.org/wiki/Unidade_central_de_processamento" targe="_blank"<!--blank para mudar de aba self para abrir na mesma aba -->CPU</a>, é um conjunto de circuitos integrados onde se executam cálculos, tarefas e tratamento de dados, daí a sua velocidade de processamento estar diretamente relacionada com a velocidade com que o computador realiza as tarefas (sendo que a velocidade é medida em GHz – frequência de processamento durante um segundo). É responsável pela execução dos comandos gerados pelo e para o software.</p>
+				<img src="_imagens/imagem2.png" width="505px"/> 
+				<figcaption id="legenda">
+						<p>Deste ângulo, conseguimos visualizar os circuitos integrados caraterísticos deste exemplo.</p>
+				</figcaption>
+			<section id=""></section> <!-- VER ISTO-->
+
+			<h2>Circuito Integrado ou CI</h2>
+			<p>Inventado por Robert N. Noyce, fundador da empresa INTEL, este tem como objetivo de realizar diferentes funções como cronometrar, oscilar, ampliar e controlar ações mais complexas, que não poderiam ser executadas por um único componente.</p>
+			<img src="_imagens/fundador.jpg" width="505px"/> 
+			<figcaption id="legenda">
+				<p>Robert N. Noyce, fundador da INTEL (1927-1990).</p>
+			</figcaption>
+			<p>Primeiramente, os investigadores notaram que ao reduzir as dimensões do CI este teria um desempenho satisfatório. Começou uma nova era, onde o desenvolvimento de um CI em chips levou a que fossem alojados vários CI’s em um só chip. A evolução destes componentes levou ao aparecimento dos primeiros microprocessadores em 1971 e 1972, o microprocessador 4004 de 4 bits e o 8008 de 8bits, respetivamente.</p>
+
+			<h2>Caraterísticas de um processador</h2>
+			<table id="tabela">
+				<caption>Tabela técnica <span>Janeiro de 2017</span></caption>
+				<tr><td colspan="2" class="ce"> Constituição </td></tr>
+				<tr><td class="ce">Frequência do Relógio (clock)</td><td class="cd">Sincroniza a comunicação entre os elementos do hardware</td></tr>
+				<tr><td class="ce">Barramento Interno e Externo</td><td class="cd"> Conectam os componentes de um computador à placa mãe e leva sinais para outros componentes do sistema</td></tr>
+				<tr><td class="ce">Conjunto de Instruções</td><td class="cd"> O conjunto de instruções foi aumentando consoante o progresso dos aparelhos.</td></tr>
+				<tr><td class="ce">Cache de memória </td><td class="cd"> Pequeno banco de memória onde é guardado o conteúdo das últimas posições de memória solicitadas pelo processador</td></tr>
+			</table>
+			<br/>
+		</section>
+		<aside id="lateral"> 
+			<h1>Novidades sobre processadores</h1>
+			<p>O próximo tipo de processamento que está na ribalta e está a ser alvo de profundas investigações trata o processamento paralelo, onde um conjunto de processadores é visto por um software como um só. Isto aumenta, não só a rapidez do aparelho, como permite que várias funções sejam realizadas ao mesmo tempo.</p>
+		</aside>
+		<footer id="rodape"> 
+			<br/>
+			<p>Copyright 2017 - by Mariana Pinto e Rafael Maio<br/>
+			<a href="http://facebook.com" target="_blank">Facebook</a> | <a href="http://Twitter.com" target="_blank"> Twitter </a></p>
+			<p>Para tirar dúvidas envia as tuas perguntas para:</p>
+			<p> rafael.maio@ua.pt | mariana17@ua.pt </p>
+		</footer>
+	</div>
+</body>
+</html>
