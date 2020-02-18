@@ -1,0 +1,30 @@
+Como um ciclo for pode ser escrito como se de um ciclo WHEN se tratasse, adotou-se uma única estratégia para reduzir o número de tokens diferentes e abordagens utilizados necessários na nova linguagem.
+
+Quando for necessário realizar um ciclo for é só inicializar uma qualquer variável e incrementar/decrementar consoante o tipo de objetivo problema que é apresentado no trabalho. Como por exemplo:
+
+\quad \quad \textbf{\textit{groundvalue <- GROUND}}
+
+\quad \quad \textbf{\textit{LOOP}}
+
+\quad \quad \quad \quad \textbf{\textit{[groundvalue < 5] => FOWARD 5}}
+
+\quad \quad \quad \quad \textbf{\textit{groundvalue <- groundvalue+1}}
+
+\quad \quad \textbf{\textit{ENDLOOP}}
+
+Assim, inicia-se a variável fora do LOOP e enquanto a variável for menor que 5 ele anda 5 robots para a frente, sendo incrementada a variável por cada ciclo que se realize.
+
+
+manual
+
+Para usarmos uma estrutura iterativa basta criar uma variável fora do loop e incrementá-la dentro do mesmo.
+
+\quad \quad \textbf{\textit{groundvalue <- GROUND}}
+
+\quad \quad \textbf{\textit{LOOP}}
+
+\quad \quad \quad \quad \textbf{\textit{[groundvalue < 5] => FOWARD 5}}
+
+\quad \quad \quad \quad \textbf{\textit{groundvalue <- groundvalue+1}}
+
+\quad \quad \textbf{\textit{ENDLOOP}

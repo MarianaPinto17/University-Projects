@@ -1,0 +1,76 @@
+/*
+* Exemplo programa de TESTE da linguagem SQUEAK
+* a funcoes possiveis
+* criado por Ariana, Dario, Diogo, Joao e Mariana
+* LFA - 2018/2019
+* PROJETO DE CRIAÇAO DE LINGUAGEM PARA MANIPULAÇAO DE ROBOTS
+*/
+
+/*------------------------------------------FUNCTIONS-----------------------------------------*/
+
+ START "bot" 
+    //funcao nao definida
+    funcao_n_definida() // erro semantico
+
+    // funçao sem valor retorno atribuida a uma variavel - erro
+    b <- xpto1() // erro semantico
+
+    //funcao com retorno atribuida a uma variavel
+    c <- xpto2() 
+
+    // funcao com numero parametros errados - erro
+    xpto3(1 2) // erro semantico
+    
+    // funcao parametros inteiros
+    //xpto4(3);     // erro sintático
+
+    // funcao parametros strings
+    xpto4("hello")
+
+    // funçao atribuida incorretamente
+    //xpto1(1) <- a   // erro sintático
+
+    //funcao com retorno atribuida a uma variavel com uma operaçao
+    d <- xpto2() + 3
+
+END
+
+// funçao sem nome - erro sintático 
+/*
+function ()
+    write("deve dar erro!")
+endfunction
+*/
+FUNCTION xpto1()
+    write("funçao exemplo")
+ENDFUNCTION
+
+FUNCTION xpto2()=>output
+    write("funcao exemplo com retorno")
+    output <- 3
+ENDFUNCTION
+
+FUNCTION xpto3(x)=>y
+    //WRITE ("funcao exemplo com entrada e retorno)   // erro sintático
+    y <- x
+ENDFUNCTION
+
+FUNCTION xpto4(z)
+    WRITE("funcao exemplo com entrada" + z)
+endfunction
+
+//funçao com o mesmo nome e assinatura
+function xpto1()
+    x<-3
+    LOOP
+        [x=3] => write("com erros")
+    ENDLOOP
+endfunction
+
+//funçao com o mesmo nome mas diferente assinatura
+function xpto1(z)
+    x<-3 + z
+    LOOP
+        [x=4] => write("sem erros")
+    ENDLOOP
+endfunction

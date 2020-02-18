@@ -1,0 +1,196 @@
+// EQUIVALENCIAS
+
+//TIPOS DE BOOLEANOS
+booleanValue ::= [
+   "true":"1",
+   "false":"0",
+   default:"null"
+]
+
+//TIPOS DE VARIAVEIS (FALTA STRINGS)
+typeValue ::= [
+   "integer":"int",
+   "boolean":"int",
+   default:"null"
+]
+
+//OPERADORES 
+operators ::= [
+   "*":"*",
+   "/":"/",
+   "/":"/",
+   "%":"%",
+   "+":"+",
+   "-":"-",
+   "=":"==",
+   "!=":"!=",
+   default:"null"
+]
+power(n1, n2) ::= <<
+    pow(<n1>, <n2>);
+>>
+
+//OPERADORES LOGICOS
+logicoperators ::= [
+    "<":"<",
+    ">":">",
+    "<=":"<=",
+    ">=":">=",
+    "and":"&&",
+    "or": "||",
+    default: "null"
+]
+
+//TIPO DE FUNÇÃO
+typeFunc ::= [
+    "integer":"int",
+    "boolean":"int",
+    default:"void"
+]
+
+// TEMPLATES
+
+//DECLARAÇÃO
+declarevar(name, value) ::= <<
+    
+    <typeValue.(value)> <name> = <value>;
+>>
+
+//FUNÇAO BEACON ANGLE
+cheeseangle(cheese) ::= <<beaconAngle(<cheese>);>>
+
+//FUNÇAO MOTORS
+wheels(var1, var2) ::= <<
+    motors(<var1>, <var2>);
+    apply(1);
+>>
+
+//FUNÇAO GROUNDTYPE
+ground() ::= "groundType();"
+
+//FUNÇAO OBSTACLEDISTANCE
+obsdistance(sensor) ::= <<
+    
+    obstacleDistance(<sensor>);
+>>
+
+//FUNÇÃO WRITE
+write(string) ::= <<printStr("<string>");>>
+
+//FUNÇÃO PICKUP
+pickup() ::= "pickup();"
+
+//FUNÇÃO RETURN
+return() ::= "returning();"
+
+//FUNÇÃO FINISH
+finish() ::= "finish();"
+
+//BUSSOLA
+coord() ::= "northAngle();"
+
+//FUNÇAO numberofcheeses
+ncheeses() ::= "numberOfBeacons();"
+
+//FUNÇÃO STOP
+stop() ::= <<
+    motors(0, 0);
+    apply(5);
+>>
+
+//FOWARD
+foward(value) ::= <<
+    motors(abs(<value>), abs(<value>));
+    apply(1);
+>>
+
+//BACKWARD
+backward(value) ::= <<
+     motors(-abs(<value>), -abs(<value>));
+     apply(1);
+>>
+
+//TURNLEFT
+turnleft(value) ::= <<
+    motors(-abs(<value>), abs(<value>));
+    apply(1);
+>>
+
+//TURNRIGHT
+turnright(value) ::= <<
+    motors(abs(<value>), -abs(<value>));
+    apply(1);
+>>
+
+//FUNÇÃO START DISTANCE 
+startdis()::= "startDistance();"
+
+//FUNÇÃO START ANGLE 
+startangle() ::= "startAngle();"
+
+
+//CHAMADA DE FUNÇÕES
+function(name, attrib) ::= <<
+    <name>(<attrib>);
+>>
+
+//FUNÇOES GENERICAS (INCOMPLETO)
+declarefunc(name, var, return, stat) ::= <<
+<typeFunc.(return)> <name>(<typeValue.(var)> <var>){
+
+    <stat>
+
+    return <return>;
+}
+>>
+
+//LOOP 
+while(loopcondition, loopaction) ::= <<
+    
+    while(<loopcondition>){
+        <loopaction>
+    }
+>>
+
+//ACTIONS
+ifstat(condition, action1, action2) ::= <<
+
+    if(<condition>){
+        <action1>
+    }else{
+        <action2>
+    }
+>>
+
+//MAIN (INCOMPLETO)
+main(stat,name,position) ::= <<
+
+#include "CiberAV.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* catString(const char *s1, const char *s2) {
+	char *r = (char*)malloc(strlen(s1) + strlen(s2) + 1);
+	strcpy(r,s1);
+	strcat(r,s2);
+	return r;
+}
+
+char* intToStr(int i){
+	char *r = (char*)malloc(sizeof(char)*10);
+	sprintf(r,"%d",i);
+	return r;
+}
+
+int main(stat, name, position)
+{   
+
+    Init("<name>", <position>);
+
+    <stat>
+    
+    return 0;
+}
+>>
+

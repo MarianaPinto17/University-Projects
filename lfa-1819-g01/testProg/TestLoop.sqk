@@ -1,0 +1,82 @@
+/*
+* Exemplo programa de TESTE da linguagem SQUEAK
+* aos casos de LOOP possiveis
+* criado por Ariana, Dario, Diogo, Joao e Mariana
+* LFA - 2018/2019
+* PROJETO DE CRIAÇAO DE LINGUAGEM PARA MANIPULAÇAO DE ROBOTS
+*/
+
+*/-----------------------------------------LOOPS------------------------------------------/*
+
+start "ROBOT"
+    xpto()
+    xpto1()
+    xpto2()
+    xpto3()
+    xpto4()
+    xpto5()
+    xpto6()
+    xpto7(1)
+end
+
+//loop normal
+function xpto()
+    x<-3
+    LOOP
+        [x=3] => write("sem erros")
+    ENDLOOP
+endfunction
+
+//loop com actions dentro
+function xpto3()
+    x<-3
+    loop [x>3] =>
+        actions
+            [x=3]=> write("sem erros")
+        endactions
+    endloop
+endfunction
+
+//loop sem inicializacao 
+function xpto1()
+    x<-3
+    [x=3] => write("com erros")     // erro sintático
+    ENDLOOP
+endfunction
+
+// loop sem finalizacao
+function xpto2()
+    x<-3
+    loop
+        [x=3] => write("com erros") // erro sintático
+endfunction
+
+//parenteses curvos em vez de retos
+function xpto4()
+    x<-3
+    LOOP
+        (x=3)=>write("com erros")   // erro sintático
+    endloop
+endfunction
+
+//loop sem condiçao
+function xpto5()
+    LOOP
+        [] => write("com erros")    // erro sintático
+    endloop
+endfunction
+
+//loop sem açao - erro
+function xpto5()                    // erro sintático
+    x<-3
+    LOOP
+        [x=3] =>
+    endloop
+endfunction
+
+//loop vazio - erro
+function xpto6()
+    LOOP                            // erro sintático
+    endloop
+endfunction
+

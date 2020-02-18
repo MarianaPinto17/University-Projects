@@ -1,0 +1,114 @@
+/*
+* Exemplo linguagem SQUEAK para o robot ir até ao alvo
+* criado por Ariana, Dario, Diogo, Joao e Mariana
+* LFA - 2018/2019
+* PROJETO DE CRIAÇAO DE LINGUAGEM PARA MANIPULAÇAO DE ROBOTS
+*/
+
+START "Grimmy bear" position 0 // ou START "Grimmy bear"
+
+WRITE("Going to cheese 1")
+gotoCheeseAvoidingObstacles(1)
+
+WRITE("signaling arrival to target 1")
+PICKUP
+
+WRITE("signaling returning to start spot")
+RETURN 
+
+WRITE("going to start spot")
+gotoStartAvoidingObstacles()
+
+WRITE("signaling end of trial")
+FINISH
+
+WRITE("Bye!")
+
+END 
+
+FUNCTION gotoCheese(cheese)
+
+    LOOP 
+        [CHEESEANGLE(cheese) < -10 or CHEESEANGLE(cheese) > 10] => WHEELS(-60 60) 
+    ENDLOOP
+
+    LOOP   
+        [GROUND != cheese] =>
+        ACTIONS
+        [CHEESEANGLE(cheese) < -5] => WHEELS(80 70)
+        [CHEESEANGLE(cheese) > 5] => WHEELS(70 80)
+        WHEELS(80 80)        
+        ENDACTIONS 
+    ENDLOOP
+
+ENDFUNCTION
+
+FUNCTION gotoStart()
+
+    LOOP    
+        [STARTDISTANCE < 50] =>
+            ACTIONS
+                [STARTANGLE < -5] => WHEELS(80 70)
+                [STARTANGLE > 5] => WHEELS(70 80)
+                WHEELS(80 80)
+            ENDACTIONS
+    ENDLOOP
+
+ENDFUNCTION
+FUNCTION gotoCheeseAvoidingObstacles(cheese)
+    LOOP
+        [CHEESEANGLE(cheese) < -10 or CHEESEANGLE(cheese) > 10] => WHEELS(-60 60)       
+    ENDLOOP
+
+    LOOP
+        [GROUND != cheese] => 
+            WRITE("distances: ")
+            WRITE(FRONTSENSOR + " ")
+            WRITE(LEFTSENSOR + " ")
+            WRITE(RIGHTSENSOR + " ")
+            WRITE("angle: " + CHEESEANGLE(cheese))
+
+            ACTIONS
+            [FRONTSENSOR < 80 and LEFTSENSOR < 80] => WHEELS(50 -50) //& ...more actions can be here for example
+            [FRONTSENSOR < 80] => WHEELS(-50 50)
+            [LEFTSENSOR < 80] => WHEELS(80 40)
+            [RIGHTSENSOR < 80] => WHEELS(40 80)
+            [CHEESEANGLE(cheese) < -5] => WHEELS(80 40)
+            [CHEESEANGLE(cheese) > 5] => WHEELS(40 80)
+            WHEELS(80 80)    
+            ENDACTIONS
+    ENDLOOP
+
+    WHEELS(0 0)
+
+ENDFUNCTION
+
+FUNCTION gotoStartAvoidingObstacles()
+
+    LOOP
+        [STARTANGLE < -10 or STARTANGLE > 10] => WHEELS(-80 80) 
+
+    ENDLOOP
+
+    LOOP
+        [STARTDISTANCE > 50] => 
+            WRITE("distances: ")
+            WRITE(FRONTSENSOR)
+            WRITE(LEFTSENSOR)
+            WRITE(RIGHTSENSOR)
+
+            ACTIONS
+            [FRONTSENSOR < 80 and LEFTSENSOR < 80] => WHEELS(50 -50)
+            [FRONTSENSOR < 80] => WHEELS(-50 50)
+            [LEFTSENSOR < 80] => WHEELS(80 40)
+            [RIGHTSENSOR < 80] => WHEELS(40 80)
+            [STARTANGLE < -5] => WHEELS(80 44) 
+            [STARTANGLE > 5] => WHEELS(40 80)
+            WHEELS(80 80)
+            ENDACTIONS
+    ENDLOOP
+
+    WHEELS(0 0) // igual a STOP
+
+ENDFUNCTION
+

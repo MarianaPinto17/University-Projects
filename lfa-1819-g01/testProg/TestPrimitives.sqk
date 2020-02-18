@@ -1,0 +1,52 @@
+/*
+* Exemplo programa de TESTE da linguagem SQUEAK
+* aos tipos primitivos possiveis
+* criado por Ariana, Dario, Diogo, Joao e Mariana
+* LFA - 2018/2019
+* PROJETO DE CRIAÇAO DE LINGUAGEM PARA MANIPULAÇAO DE ROBOTS
+*/
+
+//START robot position 1
+START "robot" position 1
+
+// testes de variáveis
+variavel_nao_faz_nada                                               // nao declarada nem verificada
+variavel_n_faz <-variavel_n_faz + 1                                 // variavel nao inicializada
+//1 <- variavel_mal_inicializada                                    // variavel mal inicializada e variavel com nome impossivel
+
+// teste a strings
+string_simples <- "string"                                          // string simples
+string_soma <- "soma" + "strings"                                   // str ADD str
+string_soma_var <- "string" + string_soma + " " +string_simples     // string com somas com variaveis
+string_numeros <- "X: " + 15 + " Y: " + 12                          // string com numeros
+string_com_true <- true + "string"                                  // string de teste com booleans
+string_com_erro <- "string" + var_nao_declarada + "string2"         // Erro semantico: variavel não declarada
+string_soma_tudo <- string_simples + "string" + FALSE + 5           // soma com tudo, deve funcionar sem problemas
+string_simples_var <- 5 + string_simples                            // atribuicao de uma string a outra, deve passar pela regra value
+string_soma <- 5 / 7 + string_simples                               // deve dar string passando pelo ctx de value
+
+// teste a booleans
+bool1 <- TRUE                                                       // boolean true 
+bool2 <- not False                                                  // boolean false negado
+bool_compare <- 5 <= 7                                              // comparação de valores
+bool_logica <- bool_compare AND False                               // operações logicas
+bool_parenteses <- (5 < 7 and True)                                 // uma comparação e uma operação logica dentro de parenteses
+bool_com_erro <- true or not bool1 and bool_nao_declarada2          // Erro semantico: variavel não declarada
+bool_erro_string <- not string_soma                                 // Erro semantico: variavel tipo errado, devia ser boolean
+
+// teste a Números
+num1 <- -5.45					                                    // numero simples
+num1 <- num1 + 1                                                    // incrementacao
+num2 <- (7 / 4)			                                            // operacao divisao simples
+num3 <- (7*3)                                                       // operacao multiplicacao simples
+num4 <- (7-3)                                                       // operacao subtracao simples
+num5 <- (7^3)                                                       // operação potencia simples
+num6 <- (7+3)                                                       // operacao soma simples
+num7 <- (7%3)                                                       // operacao resto divisao simples  
+num8 <- (7+3*5/8)                                                   // operacao complexa de inteiros
+num9 <- (5 - num2 * num1 / 5 ^ num1)	                            // operacoes com variaveis e inteiros
+num10 <- (num1+num2/num3*num4)                                      // operacoes com variaveis
+num_erro_var <- var_nao_declarada                                   // Erro semantico: variavel não declarada
+num_erro_tipo <- 5 * num2 / string_simples                          // Erro semantico: variavel tipo errado, devia ser numero
+
+END

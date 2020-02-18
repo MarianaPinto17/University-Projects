@@ -1,0 +1,87 @@
+/*
+* Exemplo programa de TESTE da linguagem SQUEAK
+* ao START/END possiveis
+* criado por Ariana, Dario, Diogo, Joao e Mariana
+* LFA - 2018/2019
+* PROJETO DE CRIAÇAO DE LINGUAGEM PARA MANIPULAÇAO DE ROBOTS
+*/
+
+*/-----------------------------------------START/END------------------------------------------*/
+* IMPORTANTE: como a nossa linguagem só pode conter um START/END
+* descomentar cada uma das situações para serem verificadas independentemente
+* se nenhuma for descomentada dá erro, pois é obrigatorio todos os ficheiros
+* terem pelo menos START END
+*/
+
+//UPPERCASE DE START END
+/*START "robot" position 1
+    write("nao deve dar erros!")
+END*/
+
+//LOWERCASE DE START END
+/*start "robot"
+    write("nao deve dar erros, como nao tem position dá como se fosse zero!")
+end */
+
+//LOWER AND UPPERCASE DE START END
+/*sTaRt "robot"
+    WrIte("nao Deve dAr errOs!")
+EnD */
+
+//Start nao iniciado
+/*write("deve dar erro!") // erro sintático
+end*/
+
+//END nao finalizado
+/*start "robot"
+    write("deve dar erro!")*/ // erro sintático
+
+//start no meio de funcoes - dá erro
+/*function xpto1()
+    START "robot"                     
+        write("deve dar erro!")
+    END
+endfunction*/
+
+//funcoes dentro de start
+/*START "robot"
+    function xpto2()
+        write("deve dar erro!")
+    endfunction
+END*/
+
+//variaveis inicializadas fora do START e END
+
+/*x <- 0                            // erro sintático
+START "robot"
+    write (x + "deve dar erro")
+END*/
+
+//strings/inteiros/qualquer linha de código fora do START/END ou de FUNCTION
+/*
+* write(13)
+*start "robot"
+*   write("deve dar erro")
+*end
+*/
+
+
+//start sem string 
+/*start robot
+end*/
+
+//loop/action/atribuiçao variaveis dentro do start
+/*start "robot"
+    x<-3
+    actions
+        [x<3]=> write("sem erros")
+        [x=3]=>write("sem erros")
+    endactions
+
+    loop
+        [x=3]=>write("sem erros")
+        write("sem erros")
+    endloop
+end*/
+
+

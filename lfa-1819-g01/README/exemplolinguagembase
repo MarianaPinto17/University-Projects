@@ -1,0 +1,154 @@
+/*  Example of the SQUEAK language created by :
+    Ariana Gonçalves, Dário Costa, Diogo Correia,
+    João Gonçalves ,Mariana Pinto
+
+    LFA , DETI - class P4  group 1
+*/
+
+-----------------------------------------------------------------------
+//FUNCTIONS
+
+1)
+function ______ (input: ___) does
+
+output: _______
+
+endfunction
+
+2)
+block ______ (input: ___) does
+
+output: _______
+
+endblock
+
+3) 
+funtion f (input: ) [
+
+    
+
+output:
+
+]
+
+4) function f(input) = output
+[
+
+]
+
+endfunction
+-----------------------------------------------------------------------
+// CONDITIONALS
+
+//---->while 
+1)
+while ld<80 does
+
+endwhile
+
+2)
+while ld<80 :
+
+endwhile
+
+3)
+loop: [fd]
+    fd<80 : MOTORS 50 50 // semantica quando a exp==false quebra
+]
+
+4)
+LOOP
+[BEACONANGLE(1) < -10 | > 10] => WHEELS(-60, 60) 
+ENDLOOP
+
+//---->if
+1)
+if
+    ld <80 does MOTORS 50 50
+    or does MOTORS 50 50
+endif
+
+2)
+if
+    ld<80 : MOTORS 50 50
+    other : MOTORS 50 50
+endif
+
+3)
+if
+    ld <80 do MOTORS 50 50
+    or do MOTORS 50 50
+endif
+
+4) 
+if 
+[ Fd<80 
+    ld<80 MOTORS 50 50 
+    other MOTORS 5050 ]
+[ ld<80 MOTORS 80 40]
+
+5)
+//IF
+action[
+    fd<80 action[
+        ld<80 : MOTORS 50 50
+        other : MOTORS 40 50
+    ] ld<80 : MOTORS 50 50
+    other : MOTORS 60 60
+]
+
+
+6) EVENT: [cond1 && cond2] => action
+          [] => action // nao dependente de condições, logo corre sempre 
+          [cond1 && cond3] => action
+
+XPTO
+[fd <80 && ld<80] => MOTORS 50 -50
+[fd <80] => MOTORS -50 50
+[ld <80] => MOTORS 80 40
+[rd<80] => MOTORS 40 80
+[startangle < -5] => MOTORS 80 44
+[startangle >5] => MOTORS 40 80
+MOTORS 80 80
+ENDXPTO
+
+XPTO
+[fd<80 & ld<80] => MOTORS 50 -50
+[fd<80] => MOTORS -50 50
+[ld<80] => MOTORS 80 40
+[rd<80] => MOTORS 40 80
+[startangle < -5] => MOTORS 80 44
+[startangle >5] => MOTORS 40 80
+MOTORS 80 80
+ENDXPTO
+
+XPTO
+[fd & ld <80] => walk(50,-50)
+[fd < 80] => walk(50,-50)
+[ld<80] => walk(80,40)
+[rd<80] => walk(40,80)
+[startangle<-5] => walk(80,44)
+[startangle>5] => walk(40,80)
+walk(80,80)
+ENDXPTO
+______________________________
+
+//FOR
+LOOP [ // token
+fd<80: MOTORS
+    fd++;
+]
+
+
+
+//FUNCTION
+FUNCTION f(input) = output
+[
+
+
+]
+-----------------------------------------------------------------------
+// APPLY
+
+1) sempre que há motors enviamos apply (stor gostou) mas pediu para quando nao houver motors a semantica
+ter inteligencia 

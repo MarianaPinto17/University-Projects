@@ -1,0 +1,43 @@
+COMANDO PARA INSTALAR QT4:
+
+- sudo apt-get qt4-dev-tools
+--------------------------------------------------------------
+COMANDOS PARA O INSTALAR SIMULADOR:
+
+1- unzip do ficheiro mandado pelo professor Artur
+
+2-  abrir terminal e fazer make na pasta lfa+c-1819-base 
+--------------------------------------------------------------
+COMANDOS PARA USAR O SIMULADOR:
+
+1 - no terminal, ./startSimViewer
+
+2 - Explorer Simulator 2019 carregar no botão "Open Configuration" e escolher um dos labs da pasta Labs
+
+3 - Na janela Explorer 2019 carregem em "Connect" depois no Terminal linux, pasta lfa+c-1819-base/ciberAV-sample façam ./s1.sh a0 para correr o programa a0 (obviamente)
+
+4 - no Explorer 2019 façam Start
+
+P.S.: para gerar mais do que um robot fazer o passo 2 o número de vezes que quiser (até 3 pelo que vi)
+--------------------------------------------------------------
+COMANDOS CODE UA:
+
+
+1 - cria a pasta do projeto do code.ua: git clone  https://code.ua.pt/git/lfa-1819-g01
+
+2 - git checkout remotes/origin/simpleParser e git checkout remotes/origin/HEAD para andar pelo parser e master
+
+3 - git add * : adiciona todos os ficheiros
+
+4 - faz commit :git commit -m ""
+
+5 - faz upload do repositorio local (envia as cenas): git push
+
+6 - download do repositorio remoto: git pull (git fetch + git merge)
+
+7 - para ver o que estamos a fazer: git fetch
+
+8 - para combinar branches/commits: git merge 
+
+9 - git status : ver se está limpa a árvore
+

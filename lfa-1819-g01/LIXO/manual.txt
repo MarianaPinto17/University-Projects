@@ -1,0 +1,127 @@
+								Manual de utlizador
+
+Resumo:
+Neste manual de instruções será explicado como o programador pode uti-
+lizar a linguagem desenvolvida para a criação de programas com o resultado
+pretendido. A unidade usada neste programa será robots, ou seja, o comprimento do robot.
+
+Capitulo 1: TOKENS - palavras chaves utilizavéis da linguagem
+
+START - começa o programa(main), indica o nome do robot e a posição inicial: START "ROBOT_NAME" position 0
+
+WRITE - semelhante ao print de java/C, é a função de saída de texto: WRITE(output)
+
+PICKUP - recolhe o queijo
+
+RETURN - retornar ao ponto de partida
+
+FINISH - sinal que chegou ao fim
+
+END - token que identifica o final da main
+
+FUNCTION - identifica o início de uma função: FUNCTION x(input)=output
+
+ENDFUNCTION - identifica o fim de uma função
+
+LOOP - inicio de um ciclo iterativo/condicional em que cada linha se realiza se for true
+
+ENDLOOP - fim de um ciclo iterativo/condicional;
+
+ACTIONS - Inicio de um ciclo em que apenas a primeira linha encontrada = true se realiza
+
+ENDACTIONS - marco/fim até onde a 1º condição=true se realiza
+
+WHEELS - define os valores do poder das rodas da esquerda e da direita: WHEELS (x y)
+
+GROUND - retorna o valor inteiro do tipo de chão
+
+FRONTSENSOR, BACKSENSOR, LEFTSENSOR, RIGHTSENSOR - devolve o valor da distância do obstáculo mais próximo do sensor respetivo
+
+CHEESEANGLE - devolve o ângulo entre o robot e o beacon identificado: CHEESEANGLE 1
+
+COMPASS devolve o ângulo do robot em relação ao norte
+
+GROUND devolve um inteiro que identifica o tipo do solo que o robot está a pisar (ex: se é solo normal, se é queijo, etc)
+
+
+Capitulo 2: Geração de código
+
+2.1. - MAIN E START/END
+
+Foi optado a desconstrução da main de forma a simplificar a linguagem construída. Daí, tudo o que estiver fora dos tokens FUNCTION, LOOP E entre START e END é considerado a função main quando comparamos à linguagem java/C.
+
+2.2. FUNCTION
+Tudo o que não esteja entre START e END tem de estar dentro de funções ou será considerado main (perguntar se no meio do codigo pode ter ou se tem de ser no inicio ou só se por opção de organização se aconselha a que esteja tudo junto).
+Sabe-se que uma função retorna algum valor quando tem a forma FUNCTION xpto(x)=y. O nosso return será y e a assinatura da nossa função será x, ou seja, os parâmetros de entrada.
+Quando for uma função do tipo FUNCTION xpto(x) é porque não retorna valor algum e se for apenas FUNCTION xpto() não tem parâmetros de entrada.
+
+2.3. WHEN/FOR E LOOP
+Como um ciclo for pode ser escrito como se de um ciclo WHEN se tratasse, adotamos essa estratégia para reduzir o número de tokens utilizados e diferentes abordagens que tivessem de decorar na nova linguagem. Assim, o nome LOOP tem a seguinte estrutura quando comparados a um WHEN de java por exemplo:
+
+LOOP
+	(CONDIÇÃO) => TOKEN
+ENDLOOP
+
+As condições são formadas por expressões matemáticas usando os tokens que devolvem valores que vamos comparar aos valores condicionais que queremos.
+
+	(GROUND=1) => FOWARD 5 - Se o chão for do tipo 1 anda 5 robots para a frente.
+
+Se se quiser fazer um ciclo for através de um loop é só inicializar uma variável x e incrementar/decrementar consoante o toopo de objetivo problema que é apresentado no trabalho.
+
+2.4. IF E ACTION
+Mais uma vez, usamos condições matemáticas para resolver/simplificar o problema de comboios de if/elses que aparecessem no código e que tornavam confusos, à primeira vista, alguém de fora entender o que se estava a passar no código.
+
+Todas as condições que estiverem dentro de action serão lidas linha a linha até uma delas se verificar. Quando isso acontecer, todas as seguintes são descartadas e a expressão à direita do sinal "=>" é posta em ação, daí o termo "action".
+
+ACTION
+	(CONDIÇÃO1) => TOKEN
+	(CONDIÇÃO2) => TOKEN
+	(...)
+	TOKEN
+	ENDACTION 
+ENDACTION
+ 
+Neste exemplo, se a primeira condição for verdadeira, o código descarta todas as linhas até encontrar o token ENDACTION. Por outro lado, se a primeira condição for falsa, passa para a segunda e se esta for falsa para a terceira e assim sucessivamente, até encontrar uma que seja verdadeira. Se nenhuma das condições for verdadeira é então realizado o token que se encontra isolado no fim de todas as condiçoes, antes da ENDACTION. // perguntar se um token estiver no meio das condições é realizado.
+
+Agora vejamos outro caso: se quisermos fazer uma action dentro de uma action (if dentro de if).
+
+ACTION
+	(CONDIÇÃO1) => TOKEN
+	(CONDIÇÃO2) =>
+	ACTION
+		(CONDIÇÃO21) => TOKEN
+		(CONDIÇÃO22) => TOKEN
+	ENDACTION
+	CONDIÇÃO(3) => TOKEN
+	TOKEN
+ENDACTION
+
+Se se chegar à condição 1 e esta for verdadeira descarta as seguintes. Se for falsa, passa para a condição 2 e se esta for falsa descarta a action que segue o lado direito da seta até encontrar ENDACTION. Se for verdadeira a action que está à direita da seta é realizada e o procedimento é o mesmo, ou seja, irá verifcar as condições 21 e 22 até encontrar uma verdadeira. Quando encontrar o token ENDACTION dessa ACTION todas as linhas de código serão descartadas até haver uma ENDACTION pois a condição2 como é verdadeira faz com que a condição3 nao tenha de ser analisada.
+
+Capitulo 3: COMENTARIOS
+O uso de comentários é importante em todas as linguagens de programação para o programador adicionar notas/ideias que acha importante mas não quer que sejam analisadas pelo compilador. Daí estarem disponíveis 2 tipos de comentario: 
+
+- comentários em bloco
+
+- comentarios por linha
+
+CAPITULO 4 : ATRIBUIÇÃO DE VARIAVEIS E DECLARAÇAO DAS MESMAs
+
+Se a variável não fosse incializada, e quisessemos incrementar o valor do ground:
+
+xpto <- xpto +1
+Por outro lado, considerando uma variável xpto que é criada  e depois é igualada a um token que retornará um valor que inicializará o mesmo.
+
+xpto <- GROUND (ou seja, a variável xpto terá o valor que o token ground retorna);
+
+neste caso, não iria haver problema pois estamos a igualar xpto a um valor (mesmo que indiretamente).
+
+Mas seguindo o mesmo caso de raciocínio, se quisessemos incrementar o valor de xpto e por alguma razão trocassemos os carateres do mesmo.
+
+xpto <- GROUND;
+
+xpto <- xpot + 1;
+Iria ser criada uma nova variável (xpot) em vez de retornar um erro a avisar o programador que a variável xpot era mal usada.
+
+
+
