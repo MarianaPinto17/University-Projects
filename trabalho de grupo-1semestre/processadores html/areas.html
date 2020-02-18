@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt"> 
+<head>
+	<meta charset="UTF-8"/>
+	<title> Areas</title>
+	<link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
+	<link rel="stylesheet" type="text/css" href="_css/areas.css"/>
+</head>
+<script language = "javascript" src="_javascript/funcoes.js"></script>
+<body>
+	<div id="interface"> <!-- para limitar a interface , logo o menu é a única coisa que está em posição absoluta -->
+		<header id="cabecalho"> <!-- inicio cabeçalho -->
+			<hgroup>
+				<h1>Processadores</h1>
+				<h2>Tudo sobre processadores</h2>
+			</hgroup>
+			<img id="icone" src="_imagens/processador.png"> <!-- colar a source da imagem-->
+			<nav id = "menu">
+				<h1>Menu Principal</h1>
+				<ul type="disc">
+					<li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/areas.png')"><a href="index-txt.html">Home</a></li>
+					<li onmouseover="mudaFoto('_imagens/areas.png')" onmouseout="mudaFoto('_imagens/areas.png')"><a href="areas.html"> Àreas</a></li>
+					<li onmouseover="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/areas.png')"> <a href="excpu.html">Exemplos de Processadores</a></li>
+					<li onmouseover="mudaFoto('_imagens/multimedia.png')" onmouseout="mudaFoto('_imagens/areas.png')"><a href="multimedia.html">Vídeos</a></li>
+				</ul>
+			</nav>
+		</header> <!-- fim do cabeçalho -->
+<section id="corpo-full">
+<article id="noticia-principal">
+	<header id="cabecalho-artigo">
+		<hgroup>
+			<h3>Processadores > &nbsp; Areas</h3> 
+			<h1></h1>
+			<h2>por Mariana Pinto e Rafael Maio</h2>
+			<h3 class="direita">Atualizado em 20/01/2017</h3>
+		</hgroup>
+	</header>
+	<p>Clique em cada imagem para obter mais informações sobre cada área.</p>
+	<section id="conteudo">
+		<img src="_imagens/imagem3.jpg" usemap="#meumapa">
+		<map name="meumapa">
+			<area shape="rect" coords="2,0,475,318" href="areastexto.html#computadores" target="janela"/>
+			<area shape="rect" coords="91,321,396,502" href="areastexto.html#smartphones" target="janela"/>
+		</map>
+		<iframe src="areastexto.html" name="janela" id="frame-areas" scrolling="no"></iframe>
+	</section>
+</article>
+</section>
+<footer id="rodape"> 
+			<br/>
+			<p>Copyright 2017 - by Mariana Pinto e Rafael Maio<br/>
+			<a href="http://facebook.com" target="_blank">Facebook</a> | <a href="http://Twitter.com" target="_blank"> Twitter </a></p>
+		</footer>
+	</div>
+</body>
+</html>
