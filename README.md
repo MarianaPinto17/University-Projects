@@ -15,7 +15,7 @@ Here you can find all my projects that I made in the past years on my Master Deg
 ## SECOND YEAR:
 **LFA:** Building language SQUEAK, new language to communicate with robots, using ANTLR4 and JAVA with [@ahridesu](https://github.com/ahridesu) and [@dario-alv](https://github.com/dario-alv). **GRADE: 18.5/20**
 
-**MPEI:** Videoclub , using JAVA and Matlab Language with [@TomsFreitas] (https://github.com/TomsFreitas). **GRADE: 14/20**
+**MPEI:** Videoclub , using JAVA and Matlab Language with [@TomsFreitas](https://github.com/TomsFreitas). **GRADE: 14/20**
 
 ##THIRD YEAR:
 **SO:** 
