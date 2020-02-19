@@ -7,7 +7,7 @@ Here you can find all my projects that I made in the past years on my Master Deg
 
 **LSD:** Prime Numbers Generator on Quartus, using VHDL Language with [@danielasplopes](https://github.com/danielasplopes). **GRADE: 14/20**
 
-**LABI:** Site about the history of Processors and it's evolution, using HTML, JavaScript, CSS and LaTeX Languages with @. **GRADE: 16/20**
+**LABI:** Site about the history of Processors and it's evolution, using HTML, JavaScript, CSS and LaTeX Languages with @. **GRADE: 15/20**
 
 **LABI:** API : Meme Generator, using HTML, Python, JavaScript, CSS and LaTex Languages with @. **GRADE: not available**
 
