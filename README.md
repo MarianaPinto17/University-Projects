@@ -13,7 +13,7 @@ Prime Numbers Generator on Quartus, using VHDL Language with [@danielasplopes](h
 Site about the history of Processors and it's evolution, using HTML, JavaScript, CSS and LaTeX Languages with . **GRADE: 15/20**
 
 ### LABI:
-API : Meme Generator, using HTML, Python, JavaScript, CSS and LaTex Languages with [@ijusto](https://github.com/ijusto), [@RicardoAz15](https://github.com/RicardoAz15) e [@](https://github.com/). **GRADE: can't confirm**
+API : Meme Generator, using HTML, Python, JavaScript, CSS and LaTex Languages with [@ijusto](https://github.com/ijusto), [@RicardoAz15](https://github.com/RicardoAz15) e [@dr_disease](https://github.com/dr_disease). **GRADE: can't confirm**
 
 ## SECOND YEAR:
 ### LFA: 
