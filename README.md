@@ -10,7 +10,7 @@ BattleShip Game developed on Processing, using JAVA Language. **GRADE: 19/20**
 Prime Numbers Generator on Quartus, using VHDL Language with [@danielasplopes](https://github.com/danielasplopes). **GRADE: 14/20**
 
 ### LABI: 
-Site about the history of Processors and it's evolution, using HTML, JavaScript, CSS and LaTeX Languages with . **GRADE: 15/20**
+Site about the history of Processors and it's evolution, using HTML, JavaScript, CSS and LaTeX Languages with [@rafaelmaio](https://github.com/rafaelmaio). **GRADE: 15/20**
 
 ### LABI:
 API : Meme Generator, using HTML, Python, JavaScript, CSS and LaTex Languages with [@ijusto](https://github.com/ijusto), [@RicardoAz15](https://github.com/RicardoAz15) e [@drdisease](https://github.com/drdisease). **GRADE: can't confirm**
