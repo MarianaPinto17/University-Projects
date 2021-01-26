@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E0CAD3E1-1D6D-4BAD-8F38-26F094C50926}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Projeto</RootNamespace>
+    <AssemblyName>Projeto</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Artigos\AddArtigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Artigos\AddArtigo.Designer.cs">
+      <DependentUpon>AddArtigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Artigos\AddMateriaPrima.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Artigos\AddMateriaPrima.Designer.cs">
+      <DependentUpon>AddMateriaPrima.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Artigos\Artigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Artigos\Artigo.Designer.cs">
+      <DependentUpon>Artigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\AddCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\AddCliente.Designer.cs">
+      <DependentUpon>AddCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\Cliente.Designer.cs">
+      <DependentUpon>Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncomendasClientes\AddEncomendaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncomendasClientes\AddEncomendaCliente.Designer.cs">
+      <DependentUpon>AddEncomendaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncomendasClientes\AdicionarArtigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncomendasClientes\AdicionarArtigo.Designer.cs">
+      <DependentUpon>AdicionarArtigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncomendasFornecedor\EncomendasFornece.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncomendasFornecedor\EncomendasFornece.Designer.cs">
+      <DependentUpon>EncomendasFornece.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedores\AddFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fornecedores\AddFornecedor.Designer.cs">
+      <DependentUpon>AddFornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncomendasClientes\Encomendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncomendasClientes\Encomendas.Designer.cs">
+      <DependentUpon>Encomendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Funcionarios\AddEncomendasCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funcionarios\AddEncomendasCargo.Designer.cs">
+      <DependentUpon>AddEncomendasCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Funcionarios\AdicionarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funcionarios\AdicionarFuncionario.Designer.cs">
+      <DependentUpon>AdicionarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Funcionarios\Funcionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funcionarios\Funcionario.Designer.cs">
+      <DependentUpon>Funcionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Materia prima\AddMP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Materia prima\AddMP.Designer.cs">
+      <DependentUpon>AddMP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncomendasMP\EncomendarMP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncomendasMP\EncomendarMP.Designer.cs">
+      <DependentUpon>EncomendarMP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncomendasMP\EncomendasMP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncomendasMP\EncomendasMP.Designer.cs">
+      <DependentUpon>EncomendasMP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedores\Fornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fornecedores\Fornecedores.Designer.cs">
+      <DependentUpon>Fornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Materia prima\MateriasPrimas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Materia prima\MateriasPrimas.Designer.cs">
+      <DependentUpon>MateriasPrimas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Artigos\AddArtigo.resx">
+      <DependentUpon>AddArtigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Artigos\AddMateriaPrima.resx">
+      <DependentUpon>AddMateriaPrima.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Artigos\Artigo.resx">
+      <DependentUpon>Artigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\AddCliente.resx">
+      <DependentUpon>AddCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\Cliente.resx">
+      <DependentUpon>Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncomendasClientes\AddEncomendaCliente.resx">
+      <DependentUpon>AddEncomendaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncomendasClientes\AdicionarArtigo.resx">
+      <DependentUpon>AdicionarArtigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncomendasFornecedor\EncomendasFornece.resx">
+      <DependentUpon>EncomendasFornece.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fornecedores\AddFornecedor.resx">
+      <DependentUpon>AddFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncomendasClientes\Encomendas.resx">
+      <DependentUpon>Encomendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionarios\AddEncomendasCargo.resx">
+      <DependentUpon>AddEncomendasCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionarios\AdicionarFuncionario.resx">
+      <DependentUpon>AdicionarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionarios\Funcionario.resx">
+      <DependentUpon>Funcionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materia prima\AddMP.resx">
+      <DependentUpon>AddMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncomendasMP\EncomendarMP.resx">
+      <DependentUpon>EncomendarMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncomendasMP\EncomendasMP.resx">
+      <DependentUpon>EncomendasMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fornecedores\Fornecedores.resx">
+      <DependentUpon>Fornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materia prima\MateriasPrimas.resx">
+      <DependentUpon>MateriasPrimas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
